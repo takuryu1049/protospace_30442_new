@@ -17,12 +17,12 @@
 
 ## prototypesテーブル
 
-| Column     | Type       | Options                         |
-| ---------- | ---------- | ------------------------------- |
-| title      | string     | null: false                     |
-| catch_copy | text       | null: false                     |
-| concept    | text       | null: false                     |
-| user       | references | null: false, foreign_key: true  |
+| Column     | Type      | Options                         |
+| ---------- | --------- | ------------------------------  |
+| title      | string    | null: false                     |
+| catch_copy | text      | null: false                     |
+| concept    | text      | null: false                     |
+| user       | reference | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :user

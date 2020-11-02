@@ -1,0 +1,23 @@
+.main
+  .inner
+    .user__wrapper
+      %h2.page-heading
+        = "#{@user.name}さんの情報"
+      %table.table
+        %tbody
+          %tr
+            %th.table__col1 名前
+            %td.table__col2= @user.name
+          %tr
+            %th.table__col1 プロフィール
+            %td.table__col2= @user.profile
+          %tr
+            %th.table__col1 所属
+            %td.table__col2= @user.occupation
+          %tr
+            %th.table__col1 役職
+            %td.table__col2= @user.position
+      %h2.page-heading
+        = "#{@user.name}さんのプロトタイプ"
+      .user__card
+        = render partial: "/prototypes/prototype", collection: @prototypes

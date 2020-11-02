@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title ProtoSpace
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap", :rel => "stylesheet"}/
+  %body
+    %header.header
+      .inner
+        .nav
+          .nav__left
+            = link_to image_tag("logo.png", class: :logo), root_path
+          - if user_signed_in?
+            .nav__right
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout
+              = link_to "New Proto", new_prototype_path, class: :nav__btn
+          - else
+            .nav__right
+              = link_to "ログイン", new_user_session_path, class: :nav__btn
+              = link_to "新規登録", new_user_registration_path, class: :nav__btn
+              = link_to "プレテス", new_user_session_path, class: :nav__btn
+              = link_to "練習", new_user_session_path, class: :nav__btn
+    = yield
+    %footer.footer
+      %p.copyright Copyright © PROTO SPACE All rights reserved.

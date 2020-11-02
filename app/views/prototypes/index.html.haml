@@ -1,0 +1,8 @@
+%main.main
+  .inner
+    - if user_signed_in?
+      .greeting
+        こんにちは、
+        \#{link_to "#{current_user.name}さん", user_path(current_user.id), class: :greeting__link}
+    .card__wrapper
+      = render partial: "prototype", collection: @prototypes
